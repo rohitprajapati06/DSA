@@ -54,9 +54,6 @@ class SinglyLinkedList{
 		}
 		 head = prev;
 	}
-	
-	
-	
 }
 public class Program
 {
