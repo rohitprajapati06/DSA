@@ -43,6 +43,35 @@ namespace HelloWorld
             }
         }
         
+        public void Remove(int data){
+        	
+            Node current = tail.Next; // 5 - 10 - 20 - 30
+            Node prev = tail;         //  30 - 5 - 10 - 20
+            
+            do{
+            	 if(current.Data == data){
+                 	
+                     if(current == tail && current.Next == tail) // for single node in linked list
+                     {
+                     		tail = null ;
+                        return ;
+                     }else{
+                     		prev.Next = current.Next;
+                            if(current == tail){
+                            	tail = prev ;
+                            }
+                     }
+                     Console.WriteLine($"Deleted list {data}");
+                     return;
+                 }
+                 
+            prev = current; 
+            current = current.Next; 
+            
+            }while(current != tail.Next);
+                
+        }
+        
         public void Display(){
         	
             Node temp = tail.Next;
@@ -68,6 +97,8 @@ namespace HelloWorld
           list.Append(20);
           list.Append(30);
           list.Prepend(5);
+          list.Display();
+          list.Remove(30);
           list.Display();
           
     }
